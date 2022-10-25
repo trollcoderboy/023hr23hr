@@ -1,1 +1,85 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Moon 1.0", "DarkTheme")
 
+local Combat = Window:NewTab("Combat")
+local Movement = Window:NewTab("Movement")
+local Other = Window:NewTab("Other")
+local Exploits = Window:NewTab("Exploits")
+
+local CombatSection = Combat:NewSection("Combat")
+local MovementSection = Movement:NewSection("Movement")
+local OtherSection = Other:NewSection("Other")
+local ExploitsSection = Exploits:NewSection("Exploits")
+
+ExploitsSection:NewButton("TPAura", "TPAura", function()
+    lplr = game.Players.LocalPlayer
+local cam = workspace.CurrentCamera
+local oldchar
+local clone
+
+oldchar = lplr.Character
+oldchar.Archivable = true
+clone = oldchar:Clone()
+oldchar.PrimaryPart.Anchored = false
+
+local humc = oldchar.Humanoid:Clone()
+humc.Parent = lplr.Character
+
+cam.CameraSubject = clone.Humanoid 
+clone.Parent = workspace
+
+while true do wait(1)
+    local Players = game.Players:GetPlayers() -- Gets a list of players in the server
+    cam.CameraSubject = clone.Humanoid
+    local nplrs = #Players -- Prepares variables for next line
+    Randomplayer = Players[math.random(1, nplrs)] -- pick random player to teleport to
+    if Randomplayer.Team == game.Players.LocalPlayer.Team then -- line 5 to 7 prevent it from picking you
+        Randomplayer = Players[math.random(1, nplrs)]
+    end
+
+
+    local TargetCF = Randomplayer.Character.HumanoidRootPart.Position -- gets the random players position
+    local part = Instance.new("Part",workspace) -- creates a storage to store the randomplayers postion
+    part.Position = TargetCF -- sets the position
+    part.Transparency = 1 -- makes the location invisible
+    local character = game.Players.LocalPlayer.Character -- tells the game what the player is
+    character.HumanoidRootPart.CFrame = CFrame.new(133230000,10332323000,1003232200) -- disables the anticheat for 2 seconds
+    task.wait(1) -- part of disabler
+    character.PrimaryPart = part -- teleport
+    part.Position = TargetCF -- teleport
+    character.HumanoidRootPart.CFrame = part.CFrame
+    character.HumanoidRootPart.CFrame = part.CFrame
+    character.PrimaryPart = character.HumanoidRootPart
+
+
+    part:Destroy()
+    wait(7)
+end
+end)
+
+ExploitsSection:NewButton("TP Player", "TP Player", function()
+    local Players = game.Players:GetPlayers() -- Gets a list of players in the server
+    cam.CameraSubject = clone.Humanoid
+    local nplrs = #Players -- Prepares variables for next line
+    Randomplayer = Players[math.random(1, nplrs)] -- pick random player to teleport to
+    if Randomplayer.Team == game.Players.LocalPlayer.Team then -- line 5 to 7 prevent it from picking you
+        Randomplayer = Players[math.random(1, nplrs)]
+    end
+
+
+    local TargetCF = Randomplayer.Character.HumanoidRootPart.Position -- gets the random players position
+    local part = Instance.new("Part",workspace) -- creates a storage to store the randomplayers postion
+    part.Position = TargetCF -- sets the position
+    part.Transparency = 1 -- makes the location invisible
+    local character = game.Players.LocalPlayer.Character -- tells the game what the player is
+    character.HumanoidRootPart.CFrame = CFrame.new(133230000,10332323000,1003232200) -- disables the anticheat for 2 seconds
+    task.wait(1) -- part of disabler
+    character.PrimaryPart = part -- teleport
+    part.Position = TargetCF -- teleport
+    character.HumanoidRootPart.CFrame = part.CFrame
+    character.HumanoidRootPart.CFrame = part.CFrame
+    character.PrimaryPart = character.HumanoidRootPart
+
+
+    part:Destroy()
+end)
