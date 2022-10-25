@@ -1,9 +1,9 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Moon 1.0", "DarkTheme")
+local Window = Library.CreateLib("Moon 1.11", "DarkTheme")
 
 local Combat = Window:NewTab("Combat")
 local Movement = Window:NewTab("Movement")
-local Other = Window:NewTab("Other")
+local Other = Window:NewTab("Bypasses")
 local Exploits = Window:NewTab("Exploits")
 
 local CombatSection = Combat:NewSection("Combat")
